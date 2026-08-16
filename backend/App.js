@@ -11,6 +11,9 @@ app.use("/api",userRoute);
 //selectAll
 const selectAllRoute=require('./route/selectAllRoute')
 app.use("/api",selectAllRoute);
+//ById
+const routeById=require('./route/routeById')
+app.use("/api",routeById);
 app.listen(port,()=>{
     console.log(`Server is Running Eyob ${port}`);
 
