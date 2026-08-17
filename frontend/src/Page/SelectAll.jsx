@@ -1,71 +1,84 @@
-import React from 'react'
-import api from '../api';
-import{useEffect,useState}from 'react'
+import React, { useState, useEffect, useMemo } from 'react';
+import {
+  useReactTable,
+  getCoreRowModel,
+  flexRender,
+} from '@tanstack/react-table';
 
- function SelectAll() {
-    const[students,setStudents]=useState([]);
-    useEffect(()=>{
-    api.get("/getall")
-       .then(response=>{
-        console.log(response.data);
-        setStudents(response.data);
-        
-        
-       })
-       .catch((error)=>{
-        console.log("Error",error);
+export default function UserTable() {
+  // 1. Local state to store database rows fetched from Node.js
+  const [users, setUsers] = useState([]);
 
-       });
-       
+  // 2. Fetch database data when component mounts
+  useEffect(() => {
+    fetch('http://localhost:4400/api/getall')
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
+      .catch((err) => console.error('Fetch error:', err));
+  }, []);
 
-    },[]);
+  // 3. Define column mapping using useMemo to avoid re-creating on re-renders
+  const columns = useMemo(
+    () => [
+      {
+        accessorKey: 'userid', // Key matching your database object
+        header: 'User ID',
+      },
+      {
+        accessorKey: 'username',
+        header: 'Username',
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+      },
+    ],
+    []
+  );
+
+  // 4. Initialize TanStack Table (v8) instance
+  const table = useReactTable({
+    data: users,
+    columns: columns,
+    getCoreRowModel: getCoreRowModel(), // Required row model engine
+  });
+
+  // 5. Render HTML using TanStack helper functions
   return (
-    <div>
-      <table>
-        <tr>
-          <thead>
-            <th>Stu ID</th>
-            <th>Stu username</th>
-            <th>Stu Email</th>
-            <th>Stu password</th>
-          </thead>
-        </tr>
+    <div style={{ padding: '20px' }}>
+      <h2>user length:{users.length}</h2>
+      <table border="1" cellPadding="10" style={{ borderCollapse: 'collapse', width: '100%' }}>
+        <thead>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id} style={{ backgroundColor: '#f2f2f2' }}>
+              {headerGroup.headers.map((header) => (
+                <th key={header.id} style={{ textAlign: 'left' }}>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
         <tbody>
-          
-              <h1>Total Student: {students.length}</h1>
-              
-    {students.map((student)=>(
-      <div key={student.userid}>
-        <p>{student.userid}</p>
-        <p>{student.username}</p>
-         <p>{student.email}</p>
-          <p>{student.password}</p>
-
-      </div>
-    ))}
-          
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id}>
+                  {flexRender(
+                    cell.column.columnDef.cell,
+                    cell.getContext()
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
-      
       </table>
-      {/*
-         <h1>Total Student: {students.length}</h1>
-    {students.map((student)=>(
-      <div key={student.userid}>
-        <p>{student.userid}</p>
-        <p>{student.username}</p>
-         <p>{student.email}</p>
-          <p>{student.password}</p>
-
-      </div>
-    ))}
-      */}
-    
-
-   
-  
     </div>
-  )
-  //   <pre>{JSON.stringify(students, null, 2)}</pre>
+  );
 }
-
-export default SelectAll

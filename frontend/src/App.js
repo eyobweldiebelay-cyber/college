@@ -1,5 +1,6 @@
 
 import './App.css';
+
 import SelectAll from './Page/SelectAll';
 
 function App() {
@@ -7,8 +8,9 @@ function App() {
    
      <>
      <SelectAll />
-     </>
-   
+     
+    
+   </>
      
     
   );
