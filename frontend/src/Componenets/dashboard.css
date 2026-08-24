@@ -1,0 +1,44 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  background-color: #141212;
+  flex-direction: column;
+  
+}
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.sidebar-menu a {
+  text-decoration: none;
+  padding: 10px;
+}
+.sidebar-menu a:hover {
+  background-color: #352d2d;
+}
+
+
+.sidebar h2 {
+  margin-bottom: 30px;
+
+}
+
+.sidebar a {
+  display: block;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color:#d8cccc;
+ 
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+}

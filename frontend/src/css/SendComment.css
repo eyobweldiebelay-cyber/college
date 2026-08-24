@@ -1,0 +1,28 @@
+.page {
+  width: 100%;
+  padding: 20px;
+}
+
+.page form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.select,
+.textarea {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.textarea {
+  height: 100px;
+}
+
+.button {
+  width: 180px;
+  padding: 10px;
+  cursor: pointer;
+}

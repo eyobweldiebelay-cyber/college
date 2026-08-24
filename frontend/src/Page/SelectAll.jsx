@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import axios from 'axios';
 import {
   useReactTable,
   getCoreRowModel,
@@ -10,12 +11,29 @@ export default function UserTable() {
   const [users, setUsers] = useState([]);
 
   // 2. Fetch database data when component mounts
-  useEffect(() => {
-    fetch('http://localhost:4400/api/getall')
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.error('Fetch error:', err));
-  }, []);
+ useEffect(() => {
+  const token = localStorage.getItem('token');
+
+  axios.get('http://localhost:4400/api/getall', {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+  .then((res) => {
+   
+     console.log("res.data =", res.data);
+  console.log("res.data.users =", res.dat);
+  console.log("res.data.data =", res.data.data);
+  console.log("is array =", Array.isArray(res.data));
+
+  setUsers(res.data.data)
+  })
+  .catch((err) => {
+    
+  const message = err.response?.data?.message || "Access denied";
+    alert(message); // Outputs: "Access denied"
+  });
+}, []);
 
   // 3. Define column mapping using useMemo to avoid re-creating on re-renders
   const columns = useMemo(
@@ -32,6 +50,10 @@ export default function UserTable() {
         accessorKey: 'email',
         header: 'Email',
       },
+      {
+        accessorKey: 'role',
+        header: 'Role',
+      }
     ],
     []
   );

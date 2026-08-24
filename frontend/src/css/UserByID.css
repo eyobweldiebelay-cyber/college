@@ -1,0 +1,40 @@
+.page {
+  padding: 30px;
+  font-family: system-ui, sans-serif;
+}
+
+/* Search input and button */
+.page input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Table layout for results */
+.user-table {
+  width: 100%;
+  max-width: 500px;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #f4f6f8;
+}

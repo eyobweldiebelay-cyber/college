@@ -6,7 +6,7 @@ exports.filterUsers = async (req, res) => {
 
     try {
 
-        const username = req.query.username;
+        const username = req.query.username;//or{const {username}=req.query}
 
         const users = await getUsersByUsername(username);
 

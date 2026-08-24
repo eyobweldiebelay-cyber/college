@@ -4,5 +4,5 @@ const authorize=require('../controller/authRole')
 const authmiddleware=require('../controller/authMiddleware')
 //import delete controller
 const deleteController=require('../controller/deleteController')
-router.delete("/delete/:id",authmiddleware,deleteController.deleteUser)
+router.delete("/delete/:id", deleteController.deleteUser)
 module.exports=router;

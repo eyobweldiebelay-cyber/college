@@ -37,7 +37,7 @@ const createLogin = async (email, password) => {
             email: user.email,
             role:user.role
         },
-       "securt",
+        process.env.SECURT_KEY,
         {
             expiresIn: '1h'
         }

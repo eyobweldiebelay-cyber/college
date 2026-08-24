@@ -1,0 +1,21 @@
+.page {
+    padding: 20px;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info a {
+    font-size: 30px;
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #1877f2;
+}

@@ -1,0 +1,42 @@
+.page {
+  width: 100%;
+  padding: 20px;
+}
+
+.page h2 {
+  margin-bottom: 10px;
+}
+
+.page h1 {
+  margin-bottom: 20px;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.map > div {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.map h4 {
+  margin-bottom: 8px;
+}
+
+.map p {
+  margin-bottom: 10px;
+}
+
+.date {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.map hr {
+  margin-top: 10px;
+}

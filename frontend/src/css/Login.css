@@ -1,0 +1,95 @@
+/* Container centered on the screen */
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+/* Page heading message */
+.page h1 {
+  font-size: 1.25rem;
+  color: #2e7d32;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Card container for the form */
+.form {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px;
+  box-sizing: border-box;
+}
+
+/* Form input fields */
+.form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* Validation error messages */
+.form p[style*="color: red"] {
+  font-size: 0.85rem;
+  margin: -10px 0 15px 0;
+  text-align: left;
+}
+
+/* Submit button */
+.button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:active {
+  background-color: #004085;
+}
+
+/* Bottom redirect link text */
+.form p {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #555555;
+  text-align: center;
+}
+
+.form p a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form p a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,54 @@
+.navbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: #1f2937;
+}
+
+.navbar-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-menu a.active {
+    color: yellow;
+}
+
+.navbar-menu button {
+    padding: 8px 12px;
+    border: none;
+    background: red;
+    color: white;
+    cursor: pointer;
+}
+.navbar-user {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: 10px;
+}
+
+.navbar-user strong {
+    color: white;
+    font-size: 14px;
+}
+
+.navbar-user small {
+    color: #d1d5db;
+    font-size: 12px;
+}
